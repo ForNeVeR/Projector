@@ -49,9 +49,8 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <Compile Include="Migration.fs" />
     <Content Include="packages.config" />
-    <Compile Include="Migrations\ProjectsTable.fs" />
+    <Compile Include="Migrations\UsersTable.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FluentMigrator">

@@ -1,2 +1,0 @@
-﻿module Projector.Data.Migration
-
