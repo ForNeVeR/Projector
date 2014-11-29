@@ -54,7 +54,7 @@
     <Compile Include="Models\User.fs" />
     <Compile Include="Repositories\BaseRepository.fs" />
     <Compile Include="Repositories\UserRepository.fs" />
-    <Compile Include="Configuration.fs" />
+    <Compile Include="DataConfiguration.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AutoMapper">

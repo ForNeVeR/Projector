@@ -5,6 +5,7 @@ open System.Net.Http
 open System.Web
 open System.Web.Http
 open System.Web.Routing
+open Projector.Data
 
 type HttpRoute = {
     controller : string
@@ -25,3 +26,4 @@ type Global() =
 
     member x.Application_Start() =
         GlobalConfiguration.Configure(Action<_> Global.RegisterWebApi)
+        DataConfiguration.ConfigureMappings()
