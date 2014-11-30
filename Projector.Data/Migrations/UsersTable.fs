@@ -10,7 +10,7 @@ type UsersTable() =
         x.Create.Table("Users")
             .WithColumn("Id").AsInt64().NotNullable().PrimaryKey().Identity()
             .WithColumn("Email").AsString(256).NotNullable().Indexed()
-            .WithColumn("Password").AsString(32).NotNullable()
+            .WithColumn("PasswordHash").AsString(32).NotNullable()
         |> ignore
 
     override x.Down() =

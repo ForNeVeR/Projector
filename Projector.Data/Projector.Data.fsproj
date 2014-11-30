@@ -99,7 +99,7 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Projector.Configuration\Projector.Common.fsproj">
+    <ProjectReference Include="..\Projector.Common\Projector.Common.fsproj">
       <Name>Projector.Common</Name>
       <Project>{700d315d-3a32-41d8-aa21-002731876111}</Project>
       <Private>True</Private>

@@ -1,20 +1,20 @@
 ﻿module public Projector.Data.DataConfiguration
 
-open System
 open System.Data
-open System.Linq.Expressions
 open AutoMapper
-//open FSharp.Quotations.Evaluator
 open Microsoft.FSharp.Quotations
+open Projector.Common
 open Projector.Data.Models
 
-let compile (quot : Expr<'a -> 'b>) : Expression<Func<'a, 'b>> = failwith "Not implemented"
-    //QuotationEvaluator.ToLinqExpression quot :?> Expression<Func<'a, 'b>>
-    
+let private mapMember (destGetter: Expr<'dest -> _>) (sourceGetter: Expr<'source -> _>) (map: IMappingExpression<'source, 'dest>) =
+    let compile = ExprCompiler.compileLambda
+    map.ForMember(compile destGetter, fun c -> c.MapFrom <| compile sourceGetter)
+
 let ConfigureMappings() =
-    ignore <| Mapper.CreateMap<IDataRecord, User>(MemberList.Destination)
-        .ForMember(compile <@ fun u -> box u.Id @>, fun c -> c.MapFrom(compile <@ fun r -> r.["Id"] @>))
-        .ForMember(compile <@ fun u -> box u.Login @>, fun c -> c.MapFrom(compile <@ fun r -> r.["Login"] @>))
-        .ForMember(compile <@ fun u -> box u.PasswordHash @>, fun c -> c.MapFrom(compile <@ fun r -> r.["PasswordHash"] @>))
+    Mapper.CreateMap<IDataRecord, User>(MemberList.Destination)
+    |> mapMember <@ fun d -> d.Id @> <@ fun s -> s.["Id"] @>
+    |> mapMember <@ fun d -> d.Login @> <@ fun s -> s.["Login"] @>
+    |> mapMember <@ fun d -> d.PasswordHash @> <@ fun s -> s.["PasswordHash"] @>
+    |> ignore
 
     Mapper.AssertConfigurationIsValid()
