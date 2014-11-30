@@ -8,7 +8,9 @@ open Projector.Data.Models
 
 let private mapMember (destGetter: Expr<'dest -> _>) (sourceGetter: Expr<'source -> _>) (map: IMappingExpression<'source, 'dest>) =
     let compile = ExprCompiler.compileLambda
-    map.ForMember(compile destGetter, fun c -> c.MapFrom <| compile sourceGetter)
+    let destMember = compile destGetter
+    let sourceMember = compile sourceGetter
+    map.ForMember(destMember, fun c -> c.MapFrom sourceMember)
 
 let ConfigureMappings() =
     Mapper.CreateMap<IDataRecord, User>(MemberList.Destination)
