@@ -2,6 +2,10 @@ Projector
 =========
 This will be a project management tool you need. No more, no less.
 
+## Project Documentation
+
+- [Technical Requirements][technical-requirements]
+
 ## Database deployment
 
 This project uses a PostgreSQL database. First create the database:
@@ -16,3 +20,5 @@ This project uses a PostgreSQL database. First create the database:
 It's always better to first check the migration with `--preview` key before applying it.
 
 The `Migrate` tool is accessible through Package Manager Console or directly through command line if you have `FluentMigrator.Tools` installed globally.
+
+[technical-requirements]: docs/technical-reqiurements.md
