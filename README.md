@@ -21,4 +21,4 @@ It's always better to first check the migration with `--preview` key before appl
 
 The `Migrate` tool is accessible through Package Manager Console or directly through command line if you have `FluentMigrator.Tools` installed globally.
 
-[technical-requirements]: docs/technical-reqiurements.md
+[technical-requirements]: docs/technical-requirements.md
