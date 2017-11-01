@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright (C) 2014 by Friedrich von Never
+Copyright (C) 2014—2017 by Projector contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
